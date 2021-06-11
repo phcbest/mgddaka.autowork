@@ -1,0 +1,12 @@
+server:
+  port: 23333
+spring:
+  application:
+    name: AutoWork
+  datasource:
+    url: jdbc:mysql://81.68.118.99:3306/autowork?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: autowork
+    password: LaKhbFhX2jmT7yFT
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

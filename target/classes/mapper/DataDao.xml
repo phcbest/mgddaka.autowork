@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AutoWork.dao.DataDao">
+    <!--    都要设置为刷新缓存，不然会出现不读的现象-->
+    <select id="getAllUser" resultType="AutoWork.db.UserInfoPojo">
+        select *
+        from user_info;
+    </select>
+    <select id="getWeekNotes" resultType="AutoWork.db.WeekNotesPojo">
+        select *
+        from week_notes;
+    </select>
+
+    <select id="selectHistoryByUserPhone" resultType="java.util.HashMap">
+        select *
+        from success_history
+        where success_history.text = #{phone}
+        order by success_history.date desc
+        limit ${number}
+    </select>
+
+    <insert id="addUser" parameterType="AutoWork.db.UserInfoPojo">
+        insert user_info(phone, pwd, mail_addre, addres, info, start_time, min_week_word)
+            VALUE (#{phone},
+                   #{pwd},
+                   #{mail_addre},
+                   #{addres},
+                   #{info},
+                   #{start_time},
+                   #{min_week_word});
+    </insert>
+
+    <update id="setUser" parameterType="AutoWork.db.UserInfoPojo">
+        update user_info
+        set mail_addre   = #{mail_addre},
+            addres       = #{addres},
+            info         = #{info},
+            start_time   = #{start_time},
+            min_week_word= #{min_week_word}
+        where phone = #{phone}
+    </update>
+
+    <delete id="deleteUser" parameterType="AutoWork.db.UserInfoPojo">
+        delete
+        from user_info
+        where phone = #{phone};
+    </delete>
+
+    <select id="getUserByPhone" parameterType="String" resultType="AutoWork.db.UserInfoPojo">
+        select *
+        from user_info
+        where phone = #{phone};
+    </select>
+
+    <insert id="addUserDeleteHistory" parameterType="AutoWork.db.UserInfoPojo">
+        insert user_delete_history(phone, pwd, mail_addre, addres, info, start_time, min_week_word)
+            VALUE (#{phone},
+                   #{pwd},
+                   #{mail_addre},
+                   #{addres},
+                   #{info},
+                   #{start_time},
+                   #{min_week_word});
+    </insert>
+
+
+    <insert id="addSuccessHistoryByDate">
+        insert success_history(text, date, am_or_pm)
+            VALUE (#{text}, #{date}, #{am_or_pm});
+    </insert>
+
+    <select id="findSuccessHistoryByDate" resultType="String">
+        select success_history.text
+        from success_history
+        where date = #{date}
+          and am_or_pm = #{am_or_pm};
+    </select>
+
+    <insert id="addRemoteAddr">
+        insert ramote_address(address, date_time)
+            VALUE (#{addr}, #{date});
+    </insert>
+
+    <select id="getTokenByPhone" resultType="String">
+        select user_token.token
+        from user_token
+        where phone = #{phone};
+    </select>
+
+    <insert id="addToken">
+        insert user_token(token, date, phone)
+            VALUE (#{token}, #{date}, #{phone});
+    </insert>
+
+    <update id="setToken">
+        update user_token
+        set date  = #{date},
+            token = #{token}
+        where phone = #{phone};
+    </update>
+
+    <insert id="addWeekWorkByUser">
+        insert defined_week_work(week_work, phone, week_id)
+            VALUE (#{text}, #{phone}, #{week_id});
+    </insert>
+
+    <delete id="deleteUserWeekWork">
+        delete
+        from defined_week_work
+        where phone = #{phone}
+          and week_id = #{weekWorkId}
+    </delete>
+
+    <select id="getUserAllWeekWorkByPhone" resultType="AutoWork.db.UserAllWeekWorkPojo">
+        select *
+        from defined_week_work
+        where phone = #{phone};
+    </select>
+
+    <!--    查找使用qq途径发送消息的用户-->
+    <select id="getAllQQbyEmail" resultType="AutoWork.db.QQListpojo">
+        select *
+        from qq_canal;
+    </select>
+
+    <select id="getManagerInfo" resultType="AutoWork.db.ManagerPojo">
+        select manager_info.name, info
+        from manager_info;
+    </select>
+
+    <update id="setManagerInfo">
+        update manager_info
+        set manager_info.info = #{info}
+        where manager_info.name = #{name};
+    </update>
+</mapper>

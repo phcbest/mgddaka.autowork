@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Main-Class: AutoWork.ApplicationAutoWork
+Class-Path: spring-jdbc-5.0.7.RELEASE.jar spring-boot-starter-json-2.0.3
+ .RELEASE.jar mybatis-spring-boot-starter-1.3.1.jar spring-boot-autoconf
+ igure-2.0.3.RELEASE.jar spring-tx-5.0.7.RELEASE.jar spring-core-5.0.7.R
+ ELEASE.jar spring-boot-starter-tomcat-2.0.3.RELEASE.jar spring-expressi
+ on-5.0.7.RELEASE.jar spring-beans-5.0.7.RELEASE.jar logback-classic-1.2
+ .3.jar spring-boot-starter-logging-2.0.3.RELEASE.jar HikariCP-2.7.9.jar
+  lombok-1.18.12.jar jackson-module-parameter-names-2.9.6.jar mybatis-3.
+ 4.5.jar jackson-datatype-jsr310-2.9.6.jar snakeyaml-1.19.jar javax.anno
+ tation-api-1.3.2.jar spring-webmvc-5.0.7.RELEASE.jar jackson-core-2.9.6
+ .jar slf4j-api-1.7.25.jar classmate-1.3.4.jar logback-core-1.2.3.jar hi
+ bernate-validator-6.0.10.Final.jar jul-to-slf4j-1.7.25.jar jboss-loggin
+ g-3.3.2.Final.jar mysql-connector-java-5.1.6.jar gson-2.8.6.jar mybatis
+ -spring-boot-autoconfigure-1.3.1.jar validation-api-2.0.1.Final.jar spr
+ ing-boot-starter-jdbc-2.0.3.RELEASE.jar log4j-api-2.10.0.jar tomcat-emb
+ ed-el-8.5.31.jar spring-context-5.0.7.RELEASE.jar okio-1.14.0.jar sprin
+ g-boot-starter-web-2.0.3.RELEASE.jar javax.mail-1.6.2.jar jackson-datat
+ ype-jdk8-2.9.6.jar spring-aop-5.0.7.RELEASE.jar tomcat-embed-websocket-
+ 8.5.31.jar spring-boot-starter-2.0.3.RELEASE.jar spring-boot-2.0.3.RELE
+ ASE.jar mybatis-spring-1.3.1.jar log4j-to-slf4j-2.10.0.jar okhttp-3.10.
+ 0.jar tomcat-embed-core-8.5.31.jar spring-web-5.0.7.RELEASE.jar jackson
+ -databind-2.9.6.jar activation-1.1.jar jackson-annotations-2.9.0.jar sp
+ ring-jcl-5.0.7.RELEASE.jar
+
